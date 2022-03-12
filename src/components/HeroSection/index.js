@@ -1,0 +1,50 @@
+import React, {useState} from 'react';
+import Video from '../../videos/video.mp4';
+import { Button } from '../ButtonElement';
+import { 
+        HeroContainer, 
+        HeroBg, 
+        VideoBg,
+        HeroContent,
+        HeroH1,
+        HeroBtnWrapper,
+        ArrowForward,
+        ArrowRight,
+        HeroP
+    } from './HeroElements';
+
+const HeroSection = () => {
+    const {hover,setHover} = useState(false);
+
+    const onHover = () => {
+        setHover(!hover);
+    }
+
+
+
+    return (
+       <HeroContainer>
+           <HeroBg>
+               <VideoBg autoPlay="autoPlay" loop muted src={Video} type='video/mp4' />
+           </HeroBg>
+           <HeroContent>
+             <HeroH1>Hi I'm Shalma Kulam Gouse, UI Developer.</HeroH1>
+             <HeroP>
+                 Welcome to my profile,want to know more?
+             </HeroP>
+             <HeroBtnWrapper>
+                 <Button 
+                    to='signup' 
+                    onMouseEnter={onHover} 
+                    onMouseLeave={onHover}
+                    primary='true'
+                    dark='true'>
+                     Get Started {hover ? <ArrowForward /> : <ArrowRight />}
+                 </Button>
+             </HeroBtnWrapper>
+           </HeroContent>
+       </HeroContainer>
+    )
+}
+
+export default HeroSection
